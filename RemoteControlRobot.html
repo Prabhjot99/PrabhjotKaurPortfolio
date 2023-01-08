@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="Style.css">
+      
+    </head>
+    <div style="background-color: whitesmoke;">
+        <div style="margin-left: 225px; margin-right: 225px;">
+            <h >Prabhjot</h>
+            <h1 class="SectionHeading">Remote-Control Robot Project</h1>
+    
+        <div class="navigateProjects" style="right: 0%;">
+            <nav>       
+              <a href="index.html">Back to Homepage</a> &nbsp; 
+           </nav>
+          </div>
+        </div>
+        </div>
+
+        <body >
+            <div style="margin-left: 225px; margin-right: 225px;">
+                <video   autoplay muted loop style="margin-left: 250px; height: 600px; width: 600px;">
+                    <source src="ProjectWorkingDemonstration1.mp4" type="video/mp4" >
+                   
+                  </video>
+                  <br/>
+
+                  This was my capstone project in Computer ENgineering Technology Diploma created in collaboration with my teammate Steven Choi.
+                  We thought of creating this project for exploring real-time presence and remote control. We created a robot car whose movement was
+                  controlled using a mobile app. A camera component was added to the car that streamed the real-time video to a web browser so that the user can operate it successfully.
+
+                  <br/>
+                  <br/>
+                   <h2 style="font-style: bold;">Hardware Components:</h2>
+                   Raspberry Pi was used as a small computer for the robotic car. The hardware design of the robot centers on a 4-wheel drive car design, with each wheel controlled by a DC motor.
+                   The motor controllers are powered by five AA batteries, providing a voltage supply of 7.5V DC, while the Raspberry Pi is powered by a separate phone battery at 5V DC. 2A L298N dual-motor controllers  and some pushbuttons were used.
+                   For the camera component, the Raspberry Pi Camera Module v2 was used.
+                   <h2 style="font-style: bold;">Software Components:</h2>
+                   Python was ultimately chosen for development on the Raspberry Pi for its compatibility, ease of use, and open-source support. Two Python files were created: One to use the open-source GPIO Zero library to access the GPIO pins and provide
+                    functions for controlling the car movement, and one to connect to the mobile app and respond to user instructions. All the functionality for the movement of the car – Forward, Backward, Left, Right, and Stop – was imported from the GPIO Zero library.
+                     Sockets were used to receive messages from the mobile app connected to the same network. 
+                     <br/>
+                     <br/>
+                     The mobile app was designed to allow the user to control the car’s movement. Xamarin was chosen to be the platform for developing the mobile app using C# in Visual Studio. 
+                     TO establish the connection between the Pi and the mobile app, UDP was chosen.
+                     <br/>
+                     <br/>
+                     <h2 style="font-style: bold;"> Experience Gained:
+                    </h2>
+                    <ul>
+                        <li>Working with Linux Operating System</li>
+                        <li>Enhanced knowledge with Python</li>
+                        <li>Development of Mobile Applications in Xamarin</li>
+                        <li>Experience working with sockets both in Python and C#</li>
+                    </ul>
+
+                    <br/>
+                    <br/>
+
+                    <a href="https://github.com/Prabhjot99/RemoteControlRobot" style="text-align: center;">
+                       Click to view Python libraries used.
+                       </a>
+                  </div>
+                  </body>
+
+                  <br/>
+                  <br/>
+                  <footer style="background-color: whitesmoke;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                      </svg>
+                      <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="prabhjotkaur99" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ca.linkedin.com/in/prabhjotkaur99?trk=profile-badge">Prabhjot Kaur</a></div>
+                       
+                    <span>&#9993; prabhjotkaur3934@gmail.com |</span> &nbsp;
+             <span>&#9990; 780-904-3245</span><br/>
+                      &copy Prabhjot Kaur 2023. All Rights Reserved
+                     </footer>
+
+</html>
