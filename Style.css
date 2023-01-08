@@ -10,7 +10,18 @@ header{
     font-size:large;
     
 }
-
+  .CoverPage {
+              background-image: url('Image3.webp');
+              background-repeat: no-repeat;
+              background-attachment: fixed;  
+              background-size: cover;
+            }
+            .ContactMe{
+              background-image: url('ContactMe.jpg');
+              background-repeat: no-repeat;
+              background-attachment: fixed;  
+              background-size: cover;
+            }
 
 .navigationBar
 {
