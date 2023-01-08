@@ -82,16 +82,24 @@ h
 
 .AboutMe
 {
-  display: grid;
-  grid-gap: 15px 10px;
-  grid-template-columns: auto auto; 
-  font-size: 1.3rem ;
-  gap: 25px;
-  margin-left: 70px;
-  margin-right: 70px;
+  display: block;
+  grid-template-columns : 1fr; 
+  grid-gap: 5px 10px; 
 }
-
-
+@media screen and ( min-width : 800px ){
+  .AboutMe {
+          
+    display: grid;
+    grid-template-columns :2fr 2fr;
+    display: grid;
+    grid-gap: 15px 10px;
+    grid-template-columns: auto auto; 
+    font-size: 1.3rem ;
+    gap: 25px;
+    margin-left: 70px;
+    margin-right: 70px;
+  }
+}
 
 #about
 {
@@ -106,13 +114,22 @@ h
 .projectsList
 {
   display: grid;
-  grid-gap: 15px 10px;
-  grid-template-columns: auto auto auto; 
-  font-size: 1.3rem ;
-  gap: 15px;
-  margin-left: 70px;
-  margin-right: 10px;
+  grid-template-columns : 1fr; 
+  grid-gap: 5px 10px; 
 }
+
+@media screen and ( min-width : 800px ){
+  .projectsList {
+       
+    display: grid;
+    grid-gap: 15px 10px;
+    grid-template-columns: auto auto auto; 
+    font-size: 1.3rem ;
+    gap: 15px;
+    margin-left: 70px;
+    margin-right: 10px;
+  }
+  }
 
 .ImageStyle
 {
