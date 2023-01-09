@@ -114,7 +114,10 @@ body
   right: 0%;
 }
 
-video { display: block; }
+video { display: block;
+max-width: 100%;
+height: auto;
+}
 
 .MainText
 {
@@ -257,4 +260,24 @@ footer{
 #contact
 {
   background-color: whitesmoke;
+}
+
+
+
+@media screen and ( min-width : 800px ){
+  .ProjectsContent {
+    margin-left: 225px;
+    margin-right: 225px;
+  }
+}
+
+
+@media screen and ( min-width : 800px ){
+.PositionVideo
+{
+  margin-left: 150px; 
+  height: 700px; width: 800px;
+  max-width: 100%;
+  height: auto;
+}
 }
