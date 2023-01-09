@@ -10,18 +10,44 @@ header{
     font-size:large;
     
 }
-  .CoverPage {
+
+.CoverPage {
               background-image: url('Image3.webp');
               background-repeat: no-repeat;
               background-attachment: fixed;  
-              background-size: cover;
-            }
-            .ContactMe{
+              background-size: contain;
+               }
+        
+            
+@media screen and ( min-width : 800px ){
+  .CoverPage {
+          
+    background-image: url('Image3.webp');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+  }
+}
+ .ContactMe{
               background-image: url('ContactMe.jpg');
               background-repeat: no-repeat;
               background-attachment: fixed;  
-              background-size: cover;
+              background-size: contain;
             }
+ @media screen and ( min-width : 800px ){
+              .ContactMe {
+                      
+                background-image: url('ContactMe.jpg');
+              background-repeat: no-repeat;
+              background-attachment: fixed;  
+              background-size: cover;
+              }
+            }
+body
+{
+  background-color: whitesmoke;
+}
+
 
 .navigationBar
 {
@@ -43,6 +69,7 @@ header{
   font-size: x-large;
   right: 0%;
 }
+
 video { display: block; }
 
 .MainText
@@ -96,7 +123,9 @@ h
   display: block;
   grid-template-columns : 1fr; 
   grid-gap: 5px 10px; 
+
 }
+
 @media screen and ( min-width : 800px ){
   .AboutMe {
           
