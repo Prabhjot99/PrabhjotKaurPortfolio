@@ -3,6 +3,9 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="Style.css">
+         
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      
         <!--[if lt IE 9]>
 <script>
 	document.createElement('video');
@@ -20,7 +23,7 @@
           <h1 class="SectionHeading">Vintage Pong Game</h1>
     
         </div>
-    <body style="background-color: white;">
+    <body style="background-color: whitesmoke;">
         <div class="ProjectsContent">
             <video class="PositionVideo"  autoplay muted loop>
                 <source src="https://user-images.githubusercontent.com/121368693/211418379-0afad3c6-8908-45ab-af72-9e8a59e3bae4.mp4" type="video/mp4">
@@ -31,226 +34,41 @@
         <br/>
         <div>
          <p1 style="font-size: large;">   
-            During the development of ths simple game, I learnt how to create graphics in .NET applications. This was done using GDI Drawer which is a simple tool provided
-            by NAIT for creating graphics. In this project, I used my knowledge of loops to create 1970's Vintage Pong Game. While playing this game, the player tries to keep 
-            the ball in the three-walled courtyard using the paddle. The player uses the computer's mouse to control the position of the pedal.
-            <br/>
-            To create the functionality of the game, a loop was used to animate the ball and move the pedal. The ball had a location and velocities in both directions for its movement. When the 
-            ball hits any of the walls or the pedal, it bounces and proceeds in the opposite direction by 90 degrees. Each time the player is able to stop the ball using the pedal, the score increases by 1.
-            The game ends when the ball exits from the left side of the game board. After the game ends, the scores are displayed and the player is prompted to either play again or quit.
+            While developing this simple game, I learnt how to create graphics in .NET applications. This was done using GDI Drawer, a simple tool NAIT provided 
+            for creating graphics. In this project, I used my knowledge of loops to create a 1970's Vintage Pong Game. While playing this game, the player tries to 
+            keep the ball in the three-walled courtyard using the paddle. The player uses the computer's mouse to control the pedal's position.
+            <br/><br/>
 
-        </p1>
+            To create the functionality of the game, a loop was used to animate the ball and move the pedal. The ball had a location and velocities in both directions for its movement. 
+            When the ball hits any of the walls or the pedal, it bounces and proceeds in the opposite direction by 90 degrees. Each time the player is able to stop the ball using the pedal,
+             the score increases by 1. The game ends when the ball exits from the left side of the game board. After the game ends, the scores are displayed, and the player is prompted to either play again or quit.
+             <br/>
+             <br/>
+             <h3>Additional Notes:</h3>
+             I am looking forward to modify this game and create it as a windows application.
         <br/>
         <br/>
         <br/>
-        <br/>
-        <div style="overflow-y: scroll; height: 500px;">
-        <pre>
-            <code>
-                using System;
-                using System.Collections.Generic;
-                using System.Linq;
-                using System.Text;
-                using System.Threading.Tasks;
-                using System.Threading;
-                using GDIDrawer;
-                using System.Drawing;
-                
-                
-                namespace Lab02
-                {
-                    class Program
-                    {
-                        
-                        static void Main(string[] args)
-                        {
-                            //to remove the default setup
-                            CDrawer canvas = new CDrawer(bContinuousUpdate: false);
-                            //give a scale of 5
-                            canvas.Scale = 5;
-                            bool valid = false;
-                        
-                
-                            
-                            //loop to repeat the game until user wishes
-                            do
-                            {
-                
-                                //to add a text to the starting window
-                                canvas.AddText("Click to Play Game", 25, 30, 10, 100, 100, Color.Red);
-                
-                                //initialise and declare the variables
-                                valid = false;
-                                bool runagain = false;
-                                Random number = new Random();
-                                
-                                //give the velocity of x position
-                                int xVel = 6;
-                                //velocity of y position
-                                int yVel = 4;
-                                // give the start point of the ball
-                                int xLoc = 0;
-                                int yLoc = 60;
-                                int score = 0;
-                                Point paddle;
-                
-                
-                
-                                Random rng = new Random();
-                
-                                //draw the border on the three sides of the drawer window
-                                //draw the border horizonatally at the top of the window
-                                for (int i = 0; i < canvas.ScaledWidth; ++i)
-                                    canvas.SetBBScaledPixel(i, 0, Color.Aqua);
-                                canvas.Render();
-                                //draw the border ast the bottom of the window
-                                for (int i = 0; i < canvas.ScaledWidth; ++i)
-                                    canvas.SetBBScaledPixel(i, 119, Color.Aqua);
-                                canvas.Render();
-                                //draw the border vertically on the right side of the window
-                                for (int i = 0; i < canvas.ScaledHeight; ++i)
-                                    canvas.SetBBScaledPixel(159, i, Color.Aqua);
-                                canvas.Render();
-                                //initialise paddle
-                             
-                
-                                // used for retrieving drawer window coordinates
-                                bool clickDetected = false;     // use354d for detecting whether a mouse position was returned
-                
-                
-                
-                             
-                                // retrieve a mouse click from the drawer
-                
-                                do
-                                {
-                
-                                    clickDetected = canvas.GetLastMouseLeftClickScaled(out paddle);
-                                }
-                                while (!clickDetected);
-                
-                                do
-                                {
-                                    //draw the paddle
-                                    canvas.Clear();
-                                    canvas.GetLastMousePositionScaled(out paddle);
-                                    
-                                   canvas.AddLine(0, paddle.Y + 20, 0, paddle.Y, Color.Red, 20);
-                                   
-                                    //relate the location with velocity
-                                 
-                
-                                    //return the ball when it touches the boundaries drawn on the right end of  the window
-                                    if ((xLoc + xVel) >= canvas.ScaledWidth - 1)
-                                    {
-                
-                                        xVel = -xVel;
-                
-                                    }
-                                    if ((yLoc + yVel) >= canvas.ScaledHeight - 1)
-                                    {
-                                        yVel = -yVel;
-                                    }
-                                    if ((xLoc + xVel == 0) && (yLoc + yVel == 0))
-                
-                
-                                    {
-                                        xVel = -xVel;
-                                        yVel = -yVel;
-                                    }
-                
-                                    if (yLoc + yVel >= canvas.ScaledHeight - 2 || yLoc + yVel <= 0)
-                                    {
-                                        yVel = -yVel;
-                                    }
-                                    //ball changes its velocity when it touches the paddle
-                                    if (xLoc >= 0 && xLoc <2 && yLoc >= paddle.Y  && yLoc < paddle.Y + 20)
-                                    {
-                                        ++score;
-                                        //ball reverses its direction after touching the paddle
-                                        xVel = -xVel;
-                
-                                    }
-                                    //relating velocity with the location
-                                    xLoc += xVel;
-                                    yLoc += yVel;
-                                    //draw the ball
-                                    canvas.AddRectangle(xLoc, yLoc, 2, 2, Color.Green);
-                                    canvas.Render();
-                                    Thread.Sleep(100);
-                                }
-                                while (yLoc < canvas.ScaledHeight && xLoc < canvas.ScaledWidth && xLoc > -10);
-                                //clear the screen 
-                                canvas.Clear();
-                
-                                Point button;
-                                //condition to ask user if he wants to play the game again or not
-                                while (!runagain)
-                                {
-                                    //display the sinal scores
-                                    canvas.AddText($"Final Score : {score}", 40, 30, 10, 100, 100, Color.Red);
-                
-                                    //angle to draw rectangle include the text to give user the option to play the game again
-                                    canvas.AddRectangle(80, 90, 30, 10, Color.Black, 3, Color.Green);
-                                    canvas.AddText("Play Again", 15, 75, 75, 40, 40, Color.Green);
-                
-                                    //angle to draw rectangle include the text to give user the option to quit the game
-                                    canvas.AddRectangle(120, 90, 30, 10, Color.Black, 3, Color.Gray);
-                                    canvas.AddText("Quit", 15, 115, 75, 40, 40, Color.Gray);
-                
-                
-                                    canvas.GetLastMouseLeftClickScaled(out button);
-                                    //if the user wants to run the game again
-                                    if (button.X >= 80 && button.X <= 110 && button.Y >= 90 && button.Y <= 100)
-                                    {
-                
-                                        // canvas.GetLastMouseLeftClickScaled(out button);
-                                        valid = false;
-                                        runagain = true;
-                                    }
-                                    
-                                
-                                    //if the user wants to quit
-                                    else if (button.X >= 120 && button.X <= 150 && button.Y >= 90 && button.Y <= 100)
-                                    {
-                                      
-                                        valid = true;
-                                        runagain = true;
-                                       
-                                    }
-                                    canvas.Render();
-                                    Thread.Sleep(30);
-                                    canvas.Clear();
-                                }
-                               
-                            }
-                            while (!valid);
-                        }
-                    }
-                }
-                
-            </code>
-        </pre>
-    </div>
-    <br/>
-    <br/>
+       For more information about the project,
        <a href="https://github.com/Prabhjot99/VintagePongGame" style="text-align: center;">
-        View Full Project on github
+        click here.
        </a>
        
+    </p1>
         </div>
     </div>
     </body>
     <br/>
     <br/>
     <footer style="background-color: white;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-          </svg>
-          <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="prabhjotkaur99" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ca.linkedin.com/in/prabhjotkaur99?trk=profile-badge">Prabhjot Kaur</a></div>
-           
-        <span>&#9993; prabhjotkaur3934@gmail.com |</span> &nbsp;
-             <span>&#9990; 780-904-3245</span><br/>
-        &copy Prabhjot Kaur 2023. All Rights Reserved
+        <i class="fa fa-linkedin"> <span class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="prabhjotkaur99" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ca.linkedin.com/in/prabhjotkaur99?trk=profile-badge">Prabhjot Kaur</a>
+        </span></i>
+  
+        
+    
+     <br/>
+        <span>&#9993; <a href="mailto:prabhjotkaur3934@gmail.com">prabhjotkaur3934@gmail.com</a> |</span> 
+               <span>&#9990; 780-904-3245</span><br/>
+        &copy Prabhjot Kaur, 2023.
        </footer>
 </html>
